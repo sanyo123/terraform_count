@@ -16,7 +16,7 @@ vm_config = [
     {
         vm_name             = "vm2"
         location            = "East US"
-        resource_group_name = "olu_nsg1"
+        resource_group_name = "olu_nsg"
         vm_size             = "Standard_B1s"
         admin_username      = "adminuser"
         admin_password      = "P@ssw0rd123!"
