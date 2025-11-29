@@ -2,14 +2,15 @@
 
 Terraform configuration to provision Azure basics using `count` for scaling:
 - Resource groups, virtual networks, and subnets
+- VNet peering between the created VNets
 - Network interfaces and Ubuntu virtual machines
 
 ## Files
-- `main.tf` VM/NIC/VNet/Subnet/NSG resources driven by `vm_config`.
-- `variables.tf` Input variable definitions (list of VM configs, rules, etc.).
-- `terraform.tfvars` Example values to drive a plan/apply.
-- `providers.tf` Provider configuration for `hashicorp/azurerm`.
-- `.gitignore` Terraform state and plan artifacts ignored.
+- `main.tf` - VM/NIC/VNet/Subnet/VNet peering resources driven by `vm_config`.
+- `variables.tf` - Input variable definitions (list of VM configs, etc.).
+- `terraform.tfvars` - Example values to drive a plan/apply.
+- `providers.tf` - Provider configuration for `hashicorp/azurerm`.
+- `.gitignore` - Terraform state and plan artifacts ignored.
 
 ## Usage
 ```sh
@@ -41,7 +42,6 @@ vm_config = [
 ]
 ```
 Add more objects to create multiple VMs; `count = length(var.vm_config)` drives resource multiplicity.
-
 
 ## Notes
 - Ensure Azure credentials are available to Terraform (e.g., `az login` or service principal env vars).
